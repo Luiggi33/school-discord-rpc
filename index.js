@@ -3,63 +3,57 @@ const discord_rpc = require('discord-rich-presence')('1088814016035561532');
 const fs = require('fs');
 const results = [];
 
-// TODO: Suffix not class
 const beautified_lesson_names = {
   "wobi": {
     "name": "Meetup",
-    "class": false
   },
   "de": {
     "name": "German",
-    "class": true
+    "suffix": "Class"
   },
   "ge": {
     "name": "History",
-    "class": true
+    "suffix": "Class"
   },
   "ma": {
     "name": "Math",
-    "class": true
+    "suffix": "Class"
   },
   "Mittag": {
     "name": "Lunch",
-    "class": false
   },
   "bio": {
     "name": "Biology",
-    "class": true
+    "suffix": "Class"
   },
   "pb": {
     "name": "Political Science",
-    "class": true
+    "suffix": "Class"
   },
   "reli": {
     "name": "Religion",
-    "class": true
+    "suffix": "Class"
   },
   "eng": {
     "name": "English",
-    "class": true
+    "suffix": "Class"
   },
   "phy": {
     "name": "Physics",
-    "class": true
+    "suffix": "Class"
   },
   "ku": {
     "name": "Art",
-    "class": true
+    "suffix": "Class"
   },
   "semi": {
     "name": "Seminar Course",
-    "class": false
   },
   "sp": {
     "name": "Sport",
-    "class": false
   },
   "pause": {
     "name": "Break",
-    "class": false
   }
 }
 
@@ -100,8 +94,8 @@ function updatePresence() {
 
             if (current_lesson && beautified_lesson_names[current_lesson]) {
               current_lesson_beautified = beautified_lesson_names[current_lesson]["name"];
-              if (beautified_lesson_names[current_lesson]["class"]) {
-                current_lesson_beautified = current_lesson_beautified + " Class"
+              if (beautified_lesson_names[current_lesson]["suffix"]) {
+                current_lesson_beautified = current_lesson_beautified + " " + beautified_lesson_names[current_lesson]["suffix"]
               }
             }
 
